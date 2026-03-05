@@ -12,7 +12,11 @@ sed -i "s/c++11/c++17/g" Makefile*
 sed -i "s/c++14/c++17/g" Makefile*
 
 # Torch / NCCL linking
-export LDFLAGS="-L$TORCH_DIR/lib -Wl,-rpath,$TORCH_DIR/lib -L$EBROOTNCCL/lib -Wl,-rpath,$EBROOTNCCL/lib -lc10 -ltorch_cpu -lc10_cuda -ltorch_cuda -lnccl"
+export LDFLAGS="
+-L$TORCH_DIR/lib -Wl,-rpath,$TORCH_DIR/lib
+-L$EBROOTNCCL/lib -Wl,-rpath,$EBROOTNCCL/lib
+-lc10 -ltorch_cpu -lc10_cuda -ltorch_cuda -lnccl
+"
 
 # Configure PLUMED
 ./configure \
