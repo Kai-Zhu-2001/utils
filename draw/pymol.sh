@@ -12,15 +12,33 @@ show spheres, V4
 set sphere_scale, 2, V4
 set cartoon_transparency, 0.3
 set sphere_transparency, 0.5, sele
-set stick_radius, 0.3
-set stick_h_scale, 0.5
+
+# stick外观
+set stick_radius, 0.28
+set stick_h_scale, 0.6
 set valence, 0
-# 设置渲染模式
-#set ray_trace_mode, 0
-set antialias, 2
+
+# 抗锯齿
+set antialias, 4
+
+# 光照
+set ambient, 0.35
+set direct, 0.7
+set specular, 0.25
+set shininess, 10
+
+# 阴影
 set ray_shadow, off
-# 添加灯光效果
-set ambient, 0.4
-set direct, 0.5
-# 使用高级渲染模式
+set ray_trace_mode, 1
+
+# 使用GPU shader
 set use_shaders, on
+
+# 边缘轮廓（非常重要）
+set depth_cue, 0
+set ray_trace_fog, 0
+
+# 颜色更清晰
+set cartoon_fancy_helices, 1
+set cartoon_smooth_loops, 1
+
