@@ -1,11 +1,10 @@
 # MODULES
-module load profile/base                                                               
-module load gcc/12.2.0 
+module load gcc
 module load gsl/2.7.1--gcc--12.2.0
-module load openmpi/4.1.6--gcc--12.2.0
-module load fftw/3.3.10--openmpi--4.1.6--gcc--12.2.0
+module load openmpi
+module load fftw
 module load openblas/0.3.24--gcc--12.2.0
-module load cuda/12.1       
+module load cuda/12.6       
 module load intel-oneapi-mkl/2023.2.0
  
 # remove check on plumed version
@@ -15,7 +14,7 @@ mv src/PLUMED/fix_plumed.cpp.fix src/PLUMED/fix_plumed.cpp
 mkdir build 
 cd build
  
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/leonardo/pub/userexternal/kzhu0000/opt/plumed2.9.4-gnn/lib/pkgconfig"
+export PKG_CONFIG_PATH=$HOME/opt/plumed2.9.4-gnn/lib/pkgconfig:$PKG_CONFIG_PATH
 
 cmake ../cmake \
 -D CMAKE_BUILD_TYPE=Release \
