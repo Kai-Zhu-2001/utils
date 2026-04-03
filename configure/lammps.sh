@@ -22,7 +22,7 @@ cmake ../cmake \
 -D BUILD_MPI=ON \
 -D BUILD_SHARED_LIBS=ON \
 -D BUILD_PYTHON=ON \
--D CMAKE_CXX_COMPILER=/leonardo/home/userexternal/kzhu0000/opt/lammps_stable/lib/kokkos/bin/nvcc_wrapper \
+-D CMAKE_CXX_COMPILER=$(pwd)/../lib/kokkos/bin/nvcc_wrapper \
 -D PKG_KOKKOS=ON \
 -D Kokkos_ENABLE_CUDA=ON \
 -D Kokkos_ARCH_AMPERE100=ON \
@@ -33,8 +33,8 @@ cmake ../cmake \
 -D DOWNLOAD_PLUMED=OFF \
 -D PKG_ML-MACE=ON \
 -D PKG_ML-IAP=ON \
--D CMAKE_PREFIX_PATH=$CONDA_PREFIX \
--D CMAKE_INSTALL_RPATH="/usr/lib64;$HOME/opt/plumed2.9.4-gnn/lib;$CONDA_PREFIX/lib" \
+-D PKG_MANYBODY=ON \
+-D CMAKE_PREFIX_PATH="$CONDA_PREFIX/lib/python3.11/site-packages/torch" \
+-D CMAKE_INSTALL_RPATH="$CONDA_PREFIX/lib;$CONDA_PREFIX/lib/python3.11/site-packages/torch/lib;$HOME/opt/plumed2.9.4-gnn/lib" \
 -D CMAKE_LIBRARY_PATH="$CUDA_HOME/lib64/stubs;$CUDA_HOME/lib64" \
--D CMAKE_EXE_LINKER_FLAGS="-L$CUDA_HOME/lib64/stubs -lcuda" \
--D PKG_MANYBODY=ON
+-D CMAKE_EXE_LINKER_FLAGS="-L$CUDA_HOME/lib64/stubs -lcuda"
